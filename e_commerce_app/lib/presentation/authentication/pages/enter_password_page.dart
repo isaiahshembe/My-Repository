@@ -1,4 +1,7 @@
+import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
+import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
+import 'package:e_commerce_app/presentation/authentication/pages/forgot_password_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +12,7 @@ class EnterPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+   appBar: BasicAppbar(),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
           child: Column(
@@ -50,7 +54,9 @@ class EnterPasswordPage extends StatelessWidget {
         children: [
           TextSpan(text: 'Forgot password?  '),
           TextSpan(
-            recognizer: TapGestureRecognizer()..onTap = () {},
+            recognizer: TapGestureRecognizer()..onTap = () {
+              AppNavigator.push(context, ForgotPasswordPage());
+            },
             text: 'Reset',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
